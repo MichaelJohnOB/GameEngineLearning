@@ -5,7 +5,7 @@
 
 #include "GameEngineLearning/Application.h"
 
-
+#include "GameEngineLearning/Log.h"
 // ---Entry Point--------------------
 #include "GameEngineLearning/EntryPoint.h"
 // ---Entry Point--------------------

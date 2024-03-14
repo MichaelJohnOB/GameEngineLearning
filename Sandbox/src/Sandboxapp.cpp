@@ -1,5 +1,4 @@
 
-
 #include <GameEngineLearning.h>
 
 class Sandbox : public GameEngineLearning::Application
