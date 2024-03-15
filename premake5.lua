@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "GameEngineLearning/vendor/GLFW/include"
+IncludeDir["Glad"] = "GameEngineLearning/vendor/Glad/include"
 
 include "GameEngineLearning/vendor/GLFW"
+include "GameEngineLearning/vendor/Glad"
 
 project "GameEngineLearning"
 	location "GameEngineLearning"
@@ -38,12 +40,14 @@ project "GameEngineLearning"
 	{
 	    "%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 	filter "system:windows"
@@ -54,7 +58,8 @@ project "GameEngineLearning"
 		defines 
 		{
 				"GEL_PLATFORM_WINDOWS",
-				"GEL_BUILD_DLL"
+				"GEL_BUILD_DLL",
+				"GLFW_INCLUDE_NONE"
 		}
 
 		
@@ -66,14 +71,17 @@ project "GameEngineLearning"
 	
 	filter "configurations:Debug"
 		defines "GEL_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GEL_Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GEL_Dist"
+		buildoptions "/MD"
 		optimize "On"
 
 
@@ -119,12 +127,15 @@ project "Sandbox"
 		
 	filter "configurations:Debug"
 		defines "GEL_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GEL_Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GEL_Dist"
+		buildoptions "/MD"
 		optimize "On"

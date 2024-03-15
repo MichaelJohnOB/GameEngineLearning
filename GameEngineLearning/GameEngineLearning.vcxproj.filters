@@ -37,6 +37,12 @@
     <ClInclude Include="src\GameEngineLearning\Events\MouseEvent.h">
       <Filter>GameEngineLearning\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Layer.h">
+      <Filter>GameEngineLearning</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\LayerStack.h">
+      <Filter>GameEngineLearning</Filter>
+    </ClInclude>
     <ClInclude Include="src\GameEngineLearning\Log.h">
       <Filter>GameEngineLearning</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameEngineLearning\Application.cpp">
+      <Filter>GameEngineLearning</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngineLearning\Layer.cpp">
+      <Filter>GameEngineLearning</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngineLearning\LayerStack.cpp">
       <Filter>GameEngineLearning</Filter>
     </ClCompile>
     <ClCompile Include="src\GameEngineLearning\Log.cpp">
