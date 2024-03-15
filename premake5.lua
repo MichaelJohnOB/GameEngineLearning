@@ -11,6 +11,12 @@ workspace "GameEngineLearning"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "GameEngineLearning/vendor/GLFW/include"
+
+include "GameEngineLearning/vendor/GLFW"
+
 project "GameEngineLearning"
 	location "GameEngineLearning"
 	kind "SharedLib"
@@ -18,6 +24,9 @@ project "GameEngineLearning"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "gelpch.h"
+	pchsource "GameEngineLearning/src/gelpch.cpp"
 
 	files
 	{
@@ -27,9 +36,16 @@ project "GameEngineLearning"
 	
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+	    "%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
 
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
+	}
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
@@ -47,7 +63,7 @@ project "GameEngineLearning"
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
-		
+	
 	filter "configurations:Debug"
 		defines "GEL_DEBUG"
 		symbols "On"
@@ -69,6 +85,8 @@ project "Sandbox"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -85,6 +103,7 @@ project "Sandbox"
 	{
 		"GameEngineLearning"
 	}
+
 
 	filter "system:windows"
 		cppdialect "C++17"

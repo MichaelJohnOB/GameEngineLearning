@@ -4,6 +4,15 @@
     <Filter Include="GameEngineLearning">
       <UniqueIdentifier>{25EDB83F-11D1-7995-7A31-74E866346417}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngineLearning\Events">
+      <UniqueIdentifier>{69BDC543-D57F-F9CD-1E30-885A8A31D2AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameEngineLearning.h" />
@@ -16,9 +25,28 @@
     <ClInclude Include="src\GameEngineLearning\EntryPoint.h">
       <Filter>GameEngineLearning</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Events\ApplicationEvent.h">
+      <Filter>GameEngineLearning\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Events\Event.h">
+      <Filter>GameEngineLearning\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Events\KeyEvent.h">
+      <Filter>GameEngineLearning\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Events\MouseEvent.h">
+      <Filter>GameEngineLearning\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\GameEngineLearning\Log.h">
       <Filter>GameEngineLearning</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameEngineLearning\Window.h">
+      <Filter>GameEngineLearning</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gelpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameEngineLearning\Application.cpp">
@@ -27,5 +55,9 @@
     <ClCompile Include="src\GameEngineLearning\Log.cpp">
       <Filter>GameEngineLearning</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gelpch.cpp" />
   </ItemGroup>
 </Project>
